@@ -17,6 +17,10 @@ namespace BkVirtual.Domain.Entities
         private List<PedidoItem> _pedidoItems;
         public IEnumerable<PedidoItem> PedidoItens => _pedidoItems;
 
+
+        //EF Relation
+        public Transacao Transacao { get; set; }
+
         public Pedido(Guid usuarioId)
         {
             UsuarioId = usuarioId;

@@ -2,6 +2,7 @@
 using BkVirtual.Application.Handlers.PedidoHandler.AdicionarItemPedido;
 using BkVirtual.Application.Handlers.PedidoHandler.FinalizarPedido;
 using BkVirtual.Core.DTOs;
+using BkVirtual.Core.Handlers;
 using BkVirtual.Core.Integration;
 using BkVirtual.Core.NotificationError;
 using BkVirtual.Domain.Entities;

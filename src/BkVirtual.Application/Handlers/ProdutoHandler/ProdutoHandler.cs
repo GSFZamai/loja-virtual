@@ -4,6 +4,7 @@ using BkVirtual.Application.Handlers.ProdutoHandler.Editar;
 using BkVirtual.Application.Handlers.ProdutoHandler.Listar;
 using BkVirtual.Application.Handlers.ProdutoHandler.ListarPorId;
 using BkVirtual.Core.DTOs;
+using BkVirtual.Core.Handlers;
 using BkVirtual.Core.Integration;
 using BkVirtual.Core.NotificationError;
 using BkVirtual.Domain.Entities;

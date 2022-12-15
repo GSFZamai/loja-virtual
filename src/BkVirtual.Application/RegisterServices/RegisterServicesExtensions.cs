@@ -14,6 +14,7 @@ using BkVirtual.Application.Handlers.ProdutoHandler.ListarPorId;
 using BkVirtual.Application.Mappings;
 using BkVirtual.Core.DTOs;
 using BkVirtual.Core.Integration;
+using BkVirtual.Infrastructure.Pagamentos.Handlers;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,21 +24,21 @@ public static class RegisterServicesExtensions
 {
     public static IServiceCollection RegistrarServicesApplication(this IServiceCollection services)
     {
-        services.AddTransient<IRequestHandler<CadastrarCategoriaRequest, BaseResponse>, CategoriaHandler>();
-        services.AddTransient<IRequestHandler<ListarCategoriaRequest, BaseResponse>, CategoriaHandler>();
-        services.AddTransient<IRequestHandler<ListarCategoriaPorIdRequest, BaseResponse>, CategoriaHandler>();
-        services.AddTransient<IRequestHandler<EditarCategoriaRequest, BaseResponse>, CategoriaHandler>();
-        
-        services.AddTransient<IRequestHandler<CadastrarProdutoRequest, BaseResponse>, ProdutoHandler>();
-        services.AddTransient<IRequestHandler<ListarProdutoRequest, BaseResponse>, ProdutoHandler>();
-        services.AddTransient<IRequestHandler<ListarProdutoPorIdRequest, BaseResponse>, ProdutoHandler>();
-        services.AddTransient<IRequestHandler<EditarProdutoRequest, BaseResponse>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<CadastrarCategoriaRequest, BaseResponse>, CategoriaHandler>();
+        services.AddScoped<IRequestHandler<ListarCategoriaRequest, BaseResponse>, CategoriaHandler>();
+        services.AddScoped<IRequestHandler<ListarCategoriaPorIdRequest, BaseResponse>, CategoriaHandler>();
+        services.AddScoped<IRequestHandler<EditarCategoriaRequest, BaseResponse>, CategoriaHandler>();
 
-        services.AddTransient<IRequestHandler<AdicionarItemPedidoRequest, BaseResponse>, PedidoHandler>();
-        services.AddTransient<IRequestHandler<CancelarPedidoRequest, BaseResponse>, PedidoHandler>();
-        services.AddTransient<IRequestHandler<FinalizarPedidoRequest, BaseResponse>, PedidoHandler>();
-        services.AddTransient<IRequestHandler<MovimentarEstoqueRequest, bool>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<CadastrarProdutoRequest, BaseResponse>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<ListarProdutoRequest, BaseResponse>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<ListarProdutoPorIdRequest, BaseResponse>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<EditarProdutoRequest, BaseResponse>, ProdutoHandler>();
 
+        services.AddScoped<IRequestHandler<AdicionarItemPedidoRequest, BaseResponse>, PedidoHandler>();
+        services.AddScoped<IRequestHandler<CancelarPedidoRequest, BaseResponse>, PedidoHandler>();
+        services.AddScoped<IRequestHandler<FinalizarPedidoRequest, BaseResponse>, PedidoHandler>();
+        services.AddScoped<IRequestHandler<MovimentarEstoqueRequest, bool>, ProdutoHandler>();
+        services.AddScoped<IRequestHandler<RealizarPagamentoRequest, BaseResponse>, PagamentoHandler>();
 
         services.AddAutoMapper(typeof(CategoriaProfile));
         return services;

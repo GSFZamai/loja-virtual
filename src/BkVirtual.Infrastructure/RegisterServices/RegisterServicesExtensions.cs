@@ -2,7 +2,10 @@ using BkVirtual.Core.DTOs;
 using BkVirtual.Domain.Interfaces.Repositories;
 using BkVirtual.Infrastructure.Context;
 using BkVirtual.Infrastructure.DTOs;
+using BkVirtual.Infrastructure.Pagamentos.Gateways;
+using BkVirtual.Infrastructure.Pagamentos.Handlers;
 using BkVirtual.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +25,9 @@ public static class RegisterServicesExtensions
         services.AddScoped<IProdutoRepository, ProdutoRepository>();
         services.AddScoped<IPedidoRepository, PedidoRepository>();
         services.AddScoped(typeof(IPaginacao<>), typeof(Paginacao<>));
+
+        services.AddScoped<IPagseguroGateway, PagSeguroGateway>();
+        services.AddScoped<ITransacaoRepository, TransacaoRepository>();
         return services;
     }
 }

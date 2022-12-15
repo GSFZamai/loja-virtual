@@ -4,7 +4,7 @@ using BkVirtual.Core.NotificationError;
 using FluentValidation;
 using MediatR;
 
-namespace BkVirtual.Application.Handlers;
+namespace BkVirtual.Core.Handlers;
 
 public abstract class BaseHandler
 {
